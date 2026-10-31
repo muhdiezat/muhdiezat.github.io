@@ -86,6 +86,7 @@
     box-shadow: 4px 4px 0 var(--navy);
     transition: transform .08s, box-shadow .08s;
   }
+  .reveal > .btn:first-child { margin-top: 0; }
   .btn:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--navy); }
   .btn svg { width: 20px; height: 20px; flex: none; }
 
@@ -138,6 +139,11 @@
       image: "img/rak-baju.jpg",
       url: "https://vt.tiktok.com/ZS9yRYAh24Tpp-ZXHSX/",
     },
+    {
+      name: "Alumu Phone Cover",
+      image: "", // no cover yet: card shows the button only
+      url: "https://vt.tiktok.com/ZS9y9YnUw9JYf-5u77P/",
+    },
   ];
 
   const bag = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l1 13H5L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>';
@@ -149,7 +155,7 @@
     <details class="item">
       <summary>${esc(p.name)}<span class="chev">${chev}</span></summary>
       <div class="reveal">
-        <a href="${esc(p.url)}" target="_blank" rel="noopener"><img src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy"></a>
+        ${p.image ? `<a href="${esc(p.url)}" target="_blank" rel="noopener"><img src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy"></a>` : ""}
         <a class="btn" href="${esc(p.url)}" target="_blank" rel="noopener">${bag}Beli di TikTok Shop</a>
       </div>
     </details>`).join("");
